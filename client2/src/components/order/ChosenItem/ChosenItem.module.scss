@@ -1,0 +1,49 @@
+@import '../../../styles/general/layout.scss';
+@import '../../../styles/general/reset.scss';
+@import '../../../styles/general/palette.scss';
+@import '../../../styles/mixins/media.scss';
+
+.liElem {
+    @extend .flex-container-column;
+}
+.chosenItem {
+    @extend .flex-container-row;
+    margin: 10px 0px;
+
+    &__image {
+        width: 15%;
+        object-fit: contain;
+    }
+
+}
+.itemInfo {
+    @extend .flex-container-column;
+    justify-content: space-between;
+    width: 85%;
+    padding-left: 15px;
+    font-size: 10px;
+    line-height: 12px;
+    color: #2B2525;
+}
+.nameAndPrice {
+    @extend .flex-container-row;
+    justify-content: space-between;
+    color: #777879;
+    font-size: 12px;
+    line-height: 11px;
+}
+.buttonsBlock {
+    @extend .flex-container-row;
+
+    &__decrease {
+        @extend .purple-button;
+    }
+
+    &__increase {
+        @extend .purple-button;
+    }
+
+    &__delete {
+        @extend .purple-button;
+    }
+}

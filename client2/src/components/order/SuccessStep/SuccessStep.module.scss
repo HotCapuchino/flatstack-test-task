@@ -1,0 +1,31 @@
+@import '../../../styles/general/palette.scss';
+@import '../../../styles/general/reset.scss';
+
+.success {
+    padding-top: 30px;
+
+    &__title {
+        color: $violet;
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    &__orderNumber {
+        margin-bottom: 10px;
+    }
+
+    &__emailConfirmation {
+        margin-bottom: 30px;
+    }
+
+    &__estimatedDelivery {
+        margin-bottom: 30px;
+    }
+
+    &__printRecipe {
+        color: $violet;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+
+}
