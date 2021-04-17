@@ -1,0 +1,68 @@
+@import '../../styles/general/palette.scss';
+@import '../../styles/general/reset.scss';
+@import '../../styles/mixins/media.scss';
+
+.generalWrapper {
+    background-color: $white;
+    margin: auto;
+    width: 50%;
+    min-width: (1920px / 2);
+    height: 50px;
+    border-bottom: 1px solid $pastel-purple;
+    padding: 0 5%;
+    margin-bottom: 50px;
+
+    @include _max992 {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    @include _max768 {
+        margin-bottom: 0;
+    }
+}
+.navbarWrapper {
+    @extend .flex-container-row;
+    height: 70%;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    &__title {
+        color: $violet;
+    }
+}
+.trolleyWrapper {
+    @extend .flex-container-row;
+
+    &__cart {
+        color: $violet;
+        text-decoration: none;
+    }
+}
+.trolleyWrapperImg {
+    @extend .flex-container-row;
+    margin-left: 10px;
+    position: relative;
+
+    &__trolleyImg {
+        content: url('../../assets/svgs/shopping-cart.svg');
+    height: 20px;
+    }
+
+    &__productsAmount {
+        position: absolute;
+        top: -20%;
+        right: -50%;
+        font-size: 9px;
+        line-height: 15px;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: $bright-pink;
+        color: $white;
+        text-align: center; 
+    }
+}
+.none {
+    display: none;
+}

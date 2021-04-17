@@ -1,0 +1,41 @@
+@import '../../../styles/general/palette.scss';
+@import '../../../styles/general/reset.scss';
+@import '../../../styles/general/layout.scss';
+@import '../../../styles/mixins/media.scss';
+
+.modalWrapper {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    &__closeModal {
+        position: fixed;
+    }
+}
+.modalBlock {
+    @extend .flex-container-column;
+    position: fixed;
+    background-color: $white;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    top: 200px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 400px;
+
+    &__modalMessage {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    &__closeModal {
+        padding: 8px 12px;
+        width: 50%;
+        margin: auto;
+    }
+}
