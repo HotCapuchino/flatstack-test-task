@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const router = Router();
+const md5 = require('crypto-js/md5');
 
 const reviews = {
     1: [{
@@ -86,10 +87,20 @@ router.post('/get_reviews', (req, res) => {
 });
 
 router.post('/leave_review', (req, res) => {
-    let new_review = {review_id, user_id, stars, user, review, date} = req.body;
-    let {product_id} = req.body;
-    if (Object.keys(new_review).length < 6) {
-        res.status(417).send('Some of the arguments are probably missing!');
+    let {product_id, user_id, stars, user, review, date} = req.body;
+    let new_review = {
+        user_id,
+        stars,
+        user,
+        review, 
+        date
+    };
+    new_review.review_id = md5(Date.now()).toString();
+    console.log(new_review);
+    for (const key in new_review) {
+        if (!new_review[key]) {
+            res.status(417).send('Seems like some params are missing!');
+        }
     }
     if (reviews[product_id]) {
         reviews[product_id].push(new_review);
@@ -98,7 +109,7 @@ router.post('/leave_review', (req, res) => {
         new_array.push(new_review);
         reviews[product_id] = new_array;
     }
-    res.send(201).json({
+    res.status(201).json({
         review: new_review
     });
 });

@@ -25,20 +25,30 @@ export function fetchReviews(product_id) {
     }    
 }
 
-export function sendReview(review, product_id) {
+export function sendReview(review, product_id, user) {
     return dispatch => {
-        fetch('http://localhost:8000/api/reviews/get_reviews', {
+        let date = new Date();
+        fetch('http://localhost:8000/api/reviews/leave_review', {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({review: review, product_id: product_id})
+            body: JSON.stringify({ 
+                product_id: product_id,
+                user_id: 99,
+                stars: 4,
+                user: user,
+                review: review,
+                date: `${date.getUTCFullYear()}/${date.getUTCMonth() + 1}/${date.getUTCDate()}`
+            })
         }).then(async function(res) {
+            let review_obj = await res.json();
             if (res.status !== 201) {
                 console.log(res);
             } else {
-                dispatch(leaveReview(review, product_id));
+                console.log(review_obj);
+                dispatch(leaveReview(review_obj.review, product_id));
             }
         }).catch(err => console.log(err));
     }

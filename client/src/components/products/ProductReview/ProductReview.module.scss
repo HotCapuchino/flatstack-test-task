@@ -5,5 +5,27 @@
 @import '../../../styles/mixins/fonts.scss';
 
 .generalWrapper {
+    // border: 2px solid $violet;
+    margin-bottom: 10px;
+}
 
+.userInfo {
+    @extend .flex-container-row;
+
+    &__name {
+        margin-right: 10px;
+    }
+}
+
+.review {
+    @include font-options(18px, 18px);
+    margin: 20px 0px;
+}
+
+.reviewInfo {
+    @extend .flex-container-row;
+
+    &__starsAmount {
+        margin-right: 10px;
+    }
 }

@@ -9,6 +9,10 @@ export class Modal extends Component {
     constructor(props) {
         super(props);
         this.el = document.createElement('div');
+        // this.el.addEventListener('click', function(event){
+        //     console.log(event.clientX, event.clientY);
+        //     console.log(event.target);
+        // })
         this.el.classList.add(modalStyle.modalWrapper);
     }
 

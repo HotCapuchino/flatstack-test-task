@@ -1,11 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import productsBlockStyles from '../ProductsBlock.module.scss';
 import ProductItem from '../ProductItem/ProductItem';
 import ProductInfo from '../ProductInfo/ProductInfo';
 import Modal from '../../general/Modal';
-import { useDispatch } from 'react-redux';
-import { fetchProducts } from  '../../../redux/middlewares/productsMiddleware';
 
 function ProductsBlock() {
     
@@ -18,9 +16,13 @@ function ProductsBlock() {
                     showProductInfo={setProductInfoVisibility} setItemInfo={setItem}/>
         });
 
+    function handleListenModalClick(event) {
+        console.log(event.clientX, event.clientY);
+    }
+
     return(
         <div className={productsBlockStyles.productsWrapper}>  
-            {productInfoVisibility ? <Modal><ProductInfo closeProductInfo={setProductInfoVisibility} item={item}/></Modal> : null}
+            {productInfoVisibility ? <Modal onClick={(e) => handleListenModalClick(e)}><ProductInfo closeProductInfo={setProductInfoVisibility} item={item}/></Modal> : null}
             <ul className={productsBlockStyles.productsList}>
                 {products}
             </ul>
