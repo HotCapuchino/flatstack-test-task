@@ -59,16 +59,16 @@ function BillingStep() {
                     <input name="city" onChange={(e) => handleInput(e)} value={values.city} 
                         placeholder="City" className={errors.city ? steps_styles.incorrectInput : null}/>
                     <div className={steps_styles.countryInfoWrapper}>
-                        <select className={steps_styles.w_60} name="country" onChange={(e) => handleInput(e)} placeholder="Country">
+                        <select className={steps_styles.mediumInput} name="country" onChange={(e) => handleInput(e)} placeholder="Country">
                             <option value="Russia">Russia</option>
                             <option value="USA">USA</option>
                         </select>
-                        <input className={errors.streetAdress ? steps_styles.incorrectInput + ' ' + steps_styles.w_30 : steps_styles.w_30} 
+                        <input className={errors.streetAdress ? steps_styles.incorrectInput + ' ' + steps_styles.shortInput : steps_styles.shortInput} 
                             name="ZIP" onChange={(e) => handleInput(e)} value={values.ZIP} placeholder="ZIP" />
                     </div>
                 </div>
             </div>
-            <button className={steps_styles.w_60} onClick={(e) => handleGoingToTheNextStep(e, 'billing')}>Continue</button>
+            <button className={steps_styles.mediumInput} onClick={(e) => handleGoingToTheNextStep(e, 'billing')}>Continue</button>
         </form>
     )
 }

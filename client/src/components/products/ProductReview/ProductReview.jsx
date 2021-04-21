@@ -1,5 +1,6 @@
 import React from 'react';
 import reviewStyle from './ProductReview.module.scss';
+import { Rating } from '@material-ui/lab';
 
 function ProductReview(props) {
 
@@ -13,7 +14,7 @@ function ProductReview(props) {
                 <div className={reviewStyle.userInfo__country}>{user.country}</div>
             </div>
             <div className={reviewStyle.reviewInfo}>
-                <div className={reviewStyle.reviewInfo__starsAmount}>Stars amount: {stars}</div>
+                <Rating name="half-rating" precision={0.5} value={stars} readOnly size='small'/>
                 <div className={reviewStyle.reviewInfo__date}>{date}</div>
             </div>
             <div className={reviewStyle.review}>{review}</div>

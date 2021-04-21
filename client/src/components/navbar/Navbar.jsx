@@ -9,9 +9,13 @@ function NavBar() {
 
     const dispatch = useDispatch();
     const chosen_items_amount = useSelector(state => {
-        return state.chosenItems.reduce(function(previousValue, item) {
+        let itemsAmount = state.chosenItems.reduce(function(previousValue, item) {
             return previousValue += item.amount;
         }, 0);
+        if (state.userInfo.currentStep === 'success') {
+            return 0;
+        }
+        return itemsAmount;
     });
     const currentStep = useSelector(state => {
         return state.userInfo.currentStep;
@@ -25,10 +29,10 @@ function NavBar() {
         } else {
             setTrolleyProductsClass(navBarStyles.none);
         }
-    }, [chosen_items_amount]);
+    }, [chosen_items_amount]); 
 
     function handleLastStep() {
-        if (currentStep == 'success') {
+        if (currentStep === 'success') {
             dispatch(setCurrentStep('shipping'));
             dispatch(clearUserItems());
         }

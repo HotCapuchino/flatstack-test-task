@@ -27,7 +27,7 @@ function ProductItem(props) {
             <div className={productsBlockStyles.itemInfo}>
                 <div className={productsBlockStyles.itemInfo__name}>{item.name}</div>
                 <div className={productsBlockStyles.itemInfo__description}>{item.description}</div>
-                <div className={productsBlockStyles.itemInfo__price}>Price: <br/> {item.price} {item.currency}</div>
+                <div className={productsBlockStyles.itemInfo__price}>Price: {item.price} {item.currency}</div>
                 <div className={productsBlockStyles.buttonsBlock}>
                     <button className={productsBlockStyles.buttonsBlock__viewItem}
                         onClick={handleOpenModal}>View Item</button>

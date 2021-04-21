@@ -10,15 +10,63 @@
     padding: 25px 15px 10px 20px;
 
     @include _max768 {
-        width: 80%;
+        width: 100%;
         margin: auto;
+        padding-bottom: 25px;
     }
     
     @include _max480 {
         width: 100%;
     }
 }
-ul {
+.titlesWrapper {
+    @extend .flex-container-row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    &__title {
+        @include font-options(24px, 24px);
+        color: $violet;
+    }
+
+    &__edit {
+        @include font-options(14px, 14px);  
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    &__edit:hover {
+        color: $violet;
+    }
+}
+.chosenItems {
     margin: 0;
     padding: 0;
+    margin-bottom: 25px;
+}
+.noProducts {
+
+    @extend .flex-container-column;
+    justify-content: center;
+    align-content: center;
+    height: 90%;
+
+    &__message {
+        @include font-options(20px, 20px);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &__link {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    &__link:hover {
+        color: $violet;
+    }
+}
+.blurred {
+    filter: grayscale(100%);
+    opacity: 0.6;
 }

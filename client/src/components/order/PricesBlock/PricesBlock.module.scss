@@ -3,3 +3,23 @@
 @import '../../../styles/general/palette.scss';
 @import '../../../styles/mixins/media.scss';
 
+
+.prices {
+    @extend .flex-container-column;
+    margin-bottom: 15px;
+
+    div {
+        @extend .flex-container-row;
+        justify-content: space-between;
+        color: $grey;
+        margin-bottom: 5px;
+    }
+
+}
+
+.totalPrice {
+    font-weight: bold;
+    color: $violet;
+    @extend .flex-container-row;
+    justify-content: space-between;
+}

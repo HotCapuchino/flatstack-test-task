@@ -1,3 +1,5 @@
+@import './palette.scss';
+
 .flex-container-row {
     display: flex;
     flex-direction: row;
@@ -5,4 +7,25 @@
 .flex-container-column {
     display: flex;
     flex-direction: column;
+}
+.product-name {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $violet;
+}
+.visibility {
+    visibility: hidden;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+background: $background; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: $grey; 
 }

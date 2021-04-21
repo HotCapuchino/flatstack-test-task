@@ -5,14 +5,16 @@
 
 .generalWrapper {
     width: 50%;
-    padding: 25px 10% 50px 50px;
+    padding: 25px 7% 50px 50px;
 
     @include _max768 {
-        width: 80%;
+        width: 100%;
         margin: auto;
+        padding: 25px 50px 50px 50px;
     }
 
     @include _max480 {
         width: 100%;
+        padding: 25px 30px 50px 30px;
     }
 }

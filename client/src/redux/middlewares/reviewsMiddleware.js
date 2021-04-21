@@ -25,7 +25,7 @@ export function fetchReviews(product_id) {
     }    
 }
 
-export function sendReview(review, product_id, user) {
+export function sendReview(review, product_id, user, user_id, stars) {
     return dispatch => {
         let date = new Date();
         fetch('http://localhost:8000/api/reviews/leave_review', {
@@ -36,8 +36,8 @@ export function sendReview(review, product_id, user) {
             },
             body: JSON.stringify({ 
                 product_id: product_id,
-                user_id: 99,
-                stars: 4,
+                user_id: user_id,
+                stars: stars,
                 user: user,
                 review: review,
                 date: `${date.getUTCFullYear()}/${date.getUTCMonth() + 1}/${date.getUTCDate()}`

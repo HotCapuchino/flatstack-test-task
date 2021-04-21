@@ -5,6 +5,8 @@ $background: #E6E9F0;
 $white: #fff;
 $pastel-purple: #9769BC;
 $bright-pink: #FF1876;
+$red: #e03314;
+$green: #1b970f;
 
 .flex-container-row {
     display: flex;
@@ -25,12 +27,9 @@ input[type=number] {
 .incorrectInput {
     background-color: rgba(248, 231, 28, 0.07);
 }
-.purple-button {
-    background-color: $violet;
+.button {
     border-radius: 5px;
     text-align: center;
-    border-color: transparent;
-    color: $white;
 }
 .none {
     display: none;

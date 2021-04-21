@@ -5,10 +5,10 @@
 
 .liElem {
     @extend .flex-container-column;
+    margin-bottom: 15px;
 }
 .chosenItem {
     @extend .flex-container-row;
-    margin: 10px 0px;
 
     &__image {
         width: 15%;
@@ -18,32 +18,78 @@
 }
 .itemInfo {
     @extend .flex-container-column;
-    justify-content: space-between;
     width: 85%;
     padding-left: 15px;
-    font-size: 10px;
-    line-height: 12px;
     color: #2B2525;
+
+    &__color {
+        @include font-options(12px, 12px);
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    &__amount {
+        @include font-options(10px, 10px);
+    }
+
 }
 .nameAndPrice {
     @extend .flex-container-row;
     justify-content: space-between;
-    color: #777879;
     font-size: 12px;
     line-height: 11px;
+
+    &__name {
+        @extend .product-name;
+        @include font-options(14px, 14px);
+    }
+
+    &__price {
+        color: $grey;
+    }
 }
 .buttonsBlock {
     @extend .flex-container-row;
+    margin-top: 5px;
+
+    button {
+        padding: 5px 7px;
+        margin-right: 5px;
+        border-radius: 5px;
+        border: 2px solid transparent;
+    }
 
     &__decrease {
-        @extend .purple-button;
+        @extend .button;
+        width: auto;
+        height: 100%;
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    &__decrease:hover {
+        color: $red;
     }
 
     &__increase {
-        @extend .purple-button;
+        @extend .button;
+        border-radius: 100%;
+        width: auto;
+        height: 100%;
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    &__increase:hover {
+        color: $green;
     }
 
     &__delete {
-        @extend .purple-button;
+        @extend .button;
+        background-color: transparent;
+    }
+
+    &__delete:hover {
+        color: $violet;
     }
 }

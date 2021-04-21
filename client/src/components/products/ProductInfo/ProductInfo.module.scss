@@ -11,17 +11,31 @@
     margin: 0 auto;
     width: 40%;
     min-width: 480px;
-    height: auto;
-    max-height: 80%;
+    height: 80%;
     top: 10%;
     background-color: #fff;
-    box-sizing: border-box;
     padding: 10px 20px;
 
     &__close {
         background-color: transparent; 
         align-self: flex-end;
         margin-bottom: 10px; 
+    }
+
+    &__close:hover {
+        color: $red;
+    }
+
+    @include _max992 {
+        width: 60%;
+    }
+
+    @include _max480 {
+        min-width: 1%;
+        width: 100%;
+        min-height: 100%;
+        height: auto;
+        top: 0;
     }
 }
 
@@ -30,27 +44,118 @@
     margin-bottom: 40px;
 
     img {
-        width: 50%;
+        object-fit: contain;
+        width: 30%;
+
+        @include _max480 {
+            align-self: center;
+            width: 80%;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
     }
 
-    .productDescription {
-        padding-left: 20px;
+    @include _max480 {
+        flex-direction: column;
     }
+}
+
+.productDescription {
+    @extend .flex-container-column;
+    justify-content: start;
+    padding-left: 20px;
+
+    &__name {
+        @extend .product-name;
+        @include font-options(24px, 24px);
+        margin-bottom: 20px;
+
+        @include _max480 {
+            align-self: center;
+        }
+    }
+
+    &__description {
+        @include font-options(16px, 16px);
+        margin-bottom: 15px;
+
+        @include _max480 {
+            overflow-y: hidden;
+            align-self: center;
+            max-height: 200px;
+        }
+    }
+
+    &__price {
+        color: $grey;
+    }
+
+    @include _max480 {
+        padding: 0;
+    }
+    
 }
 
 .reviewsBlock {
     @extend .flex-container-column;
+    margin: 20px 0px;
+
+    &__reviewError {
+        color: $red;
+    }
 
     &__reviewText {
-        // border: 2px solid black; 
         height: 100px;   
         resize: none;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        margin: 10px 0px;
+        padding: 3px 0px;
     }
-    margin: 20px 0px;
+
+    &__reviewText_wrongInput::-webkit-input-placeholder {
+        color: $red;
+    }
+    
+    &__leaveReview {
+        padding: 4px 8px;
+        text-align: center;
+        border-radius: 3px;
+        width: 100%;
+        align-self: flex-start;
+        border: 2px transparent solid;
+    }
 }
 
 .reviewsList {
     overflow-y: scroll;
     scroll-behavior: smooth;
-    height: 50%;
+    margin-bottom: 10px;
+    max-height: 400px;
+}
+
+.activeButton {
+    background-color: $violet;
+    color: $white;
+}
+
+.activeButton:hover {
+    background-color: $white;
+    color: #000;
+    border-color: $violet;
+}
+
+.inactiveButton {
+    background-color: $grey;
+}
+
+.ratingsBlock {
+
+    &__totalReview {
+
+    }   
+
+    &__reviewsTotal {
+        color: $grey;
+    }
 }
